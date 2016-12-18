@@ -1,0 +1,16 @@
+#!/bin/sh
+# installation for ubuntu
+# sudo update-rc.d opencart-image-compress defaults
+# sudo update-rc.d opencart-image-compress enable
+
+# kFreeBSD do not accept scripts as interpreters, using #!/bin/sh and sourcing.
+if [ true != "$INIT_D_SCRIPT_SOURCED" ] ; then
+    set "$0" "$@"; INIT_D_SCRIPT_SOURCED=true . /lib/init/init-d-script
+fi
+
+
+# Author: Jason Clark <mithereal@gmail.com>
+
+
+DESC="Opencart Image Compression Daemon"
+DAEMON=/usr/bin/opencart-image-compress

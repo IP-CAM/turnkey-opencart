@@ -1,0 +1,24 @@
+#!/bin/bash
+
+DIRECTORY_TO_OBSERVE="/var/www/opencart/image/cache"
+
+jpgcompress(){
+jpegoptim --strip-all "$1"
+}
+
+compress(){
+filename=$(basename "$1")
+extension="${filename#*.}"
+
+
+if [ ${extension} == jpg ]
+  then
+   jpgcompress "$1"
+  elif [ ${extension} == png ]
+  then
+  pngquant --quality=65-80 "$1"
+fi
+
+}
+
+inotifywait -mrq -e modify,create --format %w%f $DIRECTORY_TO_OBSERVE | while read FILE; do compress "$FILE"; done

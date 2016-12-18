@@ -1,0 +1,9 @@
+#include <turnkey/base>
+#include <turnkey/lamp>
+
+libphp-phpmailer           
+php-gettext         
+php5-gd                         
+php5-mcrypt
+php5-curl          
+unzip               
