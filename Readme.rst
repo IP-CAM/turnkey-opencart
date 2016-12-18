@@ -9,7 +9,7 @@ This appliance includes all the standard features in `TurnKey Core`_, and on top
   
    - Installed from release upstream source to /var/www/opencart
    - Composer globally installed for all your projects
-   - Support for Automatic Google Optimized Images via systemctl
+   - Support for Automatic Google Optimized Images via systemctl (disabled by default "systemctl start opencart-image-compress")
 
 - SSL support out of the box.
 - `Adminer`_ administration frontend for MySQL (listening on port 12322 - uses SSL).

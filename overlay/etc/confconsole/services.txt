@@ -3,6 +3,7 @@ Opencart:		 http://$ipaddr
 Webmin:          https://$ipaddr:12321
 SSH/SFTP:        root@$ipaddr (port 22)
 MySql:           $ipaddr (port 3306)
+
 			
 		 
 		 
