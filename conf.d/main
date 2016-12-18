@@ -97,16 +97,24 @@ define('DB_DATABASE', '$NAME');
 define('DB_PREFIX', '$DB_PREFIX');
 EOF
 # setup apache configuration and complete  installation
+
 a2dissite 000-default
 a2ensite opencart
 a2enmod rewrite
 
+# stop services
+/etc/init.d/mysql stop
+
+cd /var/www/opencart
+git init
+git remote add -f origin https://github.com/opencart/opencart.git
+git config core.sparseCheckout true
+echo "upload/" >> .git/info/sparse-checkout
+git pull origin master
+cd upload
+mv * ../.
 
 # fix permissions 
 
 chown -R www-data:www-data $OCROOT
-
-
-# stop services
-/etc/init.d/mysql stop
 
